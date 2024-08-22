@@ -1,3 +1,5 @@
+//Materia: Materia PMIW //Comision 5//TP1: Dinamica Circolare en P5JS//Artista: Marina Apollonio //Alumna: Ailu Avanzini  //Legajo: (94717/7)  //Profesor: Tobias Albirosa
+//Link al Video Tutorial: 
 // Variables
 let numCircles = 30; // Número de círculos
 let maxDiameter = 400; // Diámetro máximo de los círculos
