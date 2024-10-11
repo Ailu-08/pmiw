@@ -151,43 +151,26 @@ function showTitleAndText(title, body) {
   //  Divide el texto contenido en la variable body en múltiples líneas, separándolas por donde haya saltos de línea con el uso del delimitador (\n).
   
   let lines = splitTokens(body, "\n"); 
-  
-//Bucle que recorre cada linea del arreglo lines[] luego de ser divididas por Split Tokens.
-//Para cada línea, se realiza un ajuste de texto (usando la función wordWrap) y se dibuja en la pantalla.
 
   for (let i = 0; i < lines.length; i++) {
     
-//Se llama a la función wordWrap que se encarga de dividir la línea en varias sublíneas si excede un ancho máximo.    
-//Arreglo de lineas ajustadas WrappedText.
-//Indice i: Linea
-    
     let wrappedText = wordWrap(lines[i], textWidth);
 
-//Segundo ciclo que recorre las sublíneas ajustadas (resultado de wordWrap) y las dibuja una por una. 
-//Indice j: Sublinea
-
     for (let j = 0; j < wrappedText.length; j++) {
-      
-//Espaciado entre líneas (I: 30 pixeles) (J: 18 pixeles)
       
       text(wrappedText[j], width / 2, textY + (i * 30) + j * 18); 
     }
   }
 }
 
-// Función para ajustar palabras del texto para que no se salga de la pantalla. 
-//Toma una línea de texto, la divide en palabras, y luego ajusta cada palabra en una línea nueva si el ancho de la línea excede el maxWidth.
-
 function wordWrap(text, maxWidth) {
   
-  let words = text.split(" "); // Divide el texto en palabras utilizando los espacios como delimitadores, creando un arreglo words[].
+  let words = text.split(" "); 
   
   let lines = [];      // Almacena las líneas ajustadas resultantes.
   let currentLine = ""; //Línea que está siendo construida actualmente.
 
   for (let word of words) { //Recorre cada palabra en el texto.
-    
-//Crea una línea de prueba añadiendo la palabra actual a la línea que ya está construida.
     
     let testLine = currentLine + word + " "; 
     let testWidth = textWidth(testLine); // Verifica el ancho de la línea de prueba
