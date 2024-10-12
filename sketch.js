@@ -2,17 +2,14 @@
 //Link Figma: (En proceso de cambio de formato, una vez terminado le envio el PDF): https://www.figma.com/board/W182wDNffjNHWQzHQ9bTvi/FigJam-Basics?node-id=0-1&node-type=canvas&t=dFauu5vBU9LHR0tr-0
 //Link Tutorial: 
 
-let screen = 0;
-let btn1, btn2; // Botones interactivos
-let images = []; // Arreglo para las almacenar las imágenes
-let persianPrinceImg; // Imagen de la carátula
+let screen= 0;
+let images = []; 
 
 function preload() {
-  
-// Carga la imagen de la carátula
+  // Carga la imagen de la carátula
 images[0] = loadImage('assets/PersianPrince.png'); // Imagen para la pantalla 0 Caratula
 
-  //Carga de las 16 imágenes adicionales. Agregar rutas cuando tenga las imagenes!!
+//Carga de las 16 imágenes adicionales. Agregar rutas cuando tenga las imagenes!!
   
   // images[1] = loadImage('assets/imagen1.png'); // Imagen para la pantalla 1
   // images[2] = loadImage('assets/imagen2.png'); // Imagen para la pantalla 2
@@ -30,124 +27,132 @@ images[0] = loadImage('assets/PersianPrince.png'); // Imagen para la pantalla 0 
   // images[14] = loadImage('assets/imagen14.png'); // Imagen para la pantalla 14
   // images[15] = loadImage('assets/imagen15.png'); // Imagen para la pantalla 15
   // images[16] = loadImage('assets/imagen16.png'); // Imagen para la pantalla 16
+
 }
 
 function setup() {
   createCanvas(640, 480);
-  textAlign(CENTER, CENTER); // Centra el texto tanto horizontal como verticalmente
+  textAlign(CENTER, CENTER); // Centra el texto horizontal y verticalmente
 }
 
 function draw() {
   background(220); // Fondo gris claro
-  textSize(18);   // Tamaño de texto predeterminado
   fill(0);       // Texto Color Negro   
-
-  switch (screen) {
-    case 0: // Carátula
-      image(images[0], 0, 0, width, height); // Muestra la imagen de la carátula
+  
+      if ( screen == 0 ) { // Carátula
+   image(images[0], 0, 0, width, height); // Muestra la imagen de la carátula
       textSize(24);
       textStyle(BOLD); // Texto en negrita para el título
       text("El Príncipe de Persia", width / 2, 50); // Título centrado
       textSize(18);
       textStyle(NORMAL); // Restablece estilo normal
-      showButtons("Comenzar", "Créditos"); // Muestra los botones
-      break;
+        botones();        
 
-    case 1: // Introducción
-      showTitleAndText( "Introducción", "En un antiguo reino persa, el joven príncipe Dastan es adoptado por el rey. Durante una misión, Dastan y su hermano Garsiv asaltan la ciudad de Alamut, creyendo que sus habitantes son traidores."
+  } else if ( screen == 1 ) {      // Introducción
+     showTitleAndText( "Introducción", "En un antiguo reino persa, el joven príncipe Dastan es adoptado por el rey. Durante una misión, Dastan y su hermano Garsiv asaltan la ciudad de Alamut, creyendo que sus habitantes son traidores."
       );
-      showButtons("Explorar la ciudad", null);
-      break;
+      botones();
+  }
 
-    case 2: // Descubrimiento
+  else if ( screen == 2 ) {   // Descubrimiento
       showTitleAndText( "Descubrimiento", "Mientras explora, Dastan encuentra una Daga mística que le permite retroceder en el tiempo."
       );
-      showButtons("Usar la Daga para salvar a alguien", "Ocultar la Daga y volver a su reino en el futuro");
-      break;
+     botones();
+    }  
 
-    case 3: // Salvando a alguien
+    else if ( screen == 3 ) { // Salvando a alguien
       showTitleAndText( "Salvando a alguien", "Dastan usa la Daga para salvar a una joven de ser ejecutada. La joven se presenta como Tamina y le revela la verdadera historia: Alamut no es traidor y quien realmente es el traidor."
       );
-      showButtons("Viajar juntos al futuro", "Separarse en el desierto");
-      break;
+   botones();
+       } 
 
-    case 4: // Descubriendo la clave
+   else if ( screen == 4 ) {  // Descubriendo la clave
       showTitleAndText( "Descubriendo la clave", "Dastan y Tamina descubren que la Daga es la clave para detener al verdadero traidor."
       );
-      showButtons("Enfrentar al traidor", "Usar la Daga para regresar y detener la traición"); break;
+     botones(); 
+      } 
 
-    case 5: // Ocultando la Daga
+   else if ( screen == 5 ) {  // Ocultando la Daga
       showTitleAndText( "Ocultando la Daga", "Dastan siente que ha tomado una decisión arriesgada al ocultar la Daga ya que descubrió que Alamut no había cometido traición."
       );
-      showButtons("Regresar a Alamut", "Huir al desierto"); break;
+     botones();
+      } 
 
-    case 6: // Alianza
+  else if ( screen == 6 ) { // Alianza
       showTitleAndText( "Alianza", "Dastan conoce a Tamina en Alamut y se unen para desentrañar el complot que amenaza al reino. Sin embargo, se enfrentan a la traición de un noble."
       );
-      showButtons("Tamina se ofrece a casarse para apaciguar la traicion", "Activar la Daga y cambiar el futuro"); break;
+    botones();
+       } 
 
-    case 7: // Huida Solitaria
-      showTitleAndText( "Huida Solitaria", "Dastan escapa solo y se encuentra con guerreros del desierto. Ellos le cuentan quien es el traidor."
+    else if ( screen == 7 ) { // Huida Solitaria
+      showTitleAndText( "Huida Solitaria", "Dastan escapa solo y se encuentra con guerreros del desierto. Ellos le cuentan quien es el traidor y Dastan decide enfrentarlo."
       );
-      showButtons("Enfrentar al traidor con la Daga", "Enfrentar al traidor sin usar la Daga"); break;
+      botones();
+      } 
 
-    case 8: // El Viejo Sabio
-      showTitleAndText( "El Viejo Sabio", "Dastan se encuentra con un sabio que le advierte sobre las consecuencias de sus acciones. Debe decidir cómo actuar."
-      );
-      showButtons("Ignorar advertencias y enfrentar al traidor", "Escuchar al sabio"); break;
+    else if ( screen == 8 ) { // El Viejo Sabio
+      showTitleAndText( "El Viejo Sabio", "Dastan se encuentra con un sabio que le advierte sobre las consecuencias de sus acciones. Debe decidir cómo actuar.");
+     botones(); 
+    } 
 
-    case 9: // (Final 4)
+   else if ( screen == 9 ) { // (Final 4)
       showTitleAndText( "Final: 4", "Dastan se enfrenta al traidor pero pierde la batalla, y el traidor logra conseguir la Daga y conquistar el reino."
       );
-      showFinalButtons(); break;
+    botonesFinales(); 
+       } 
 
-    case 10: // Final 1
+ else if ( screen == 10 ) { // Final 1
       showTitleAndText( "Final 1", "Dastan derrota al traidor, asegurando la paz en el reino y destruyendo la Daga."
       );
-      showFinalButtons();
-      break;
+      botonesFinales(); 
+            }
 
-    case 11: // Final 2
+  else if ( screen == 11 ) { // Final 2
       showTitleAndText( "Final 2", "Dastan utiliza la Daga para cambiar su destino, salvando a Alamut, a sí mismo y a su familia."
       );
-      showFinalButtons(); break;
+       botonesFinales();  
+  }
 
-    case 12: // Final 3
+   else if ( screen == 12 ) { // Final 3
       showTitleAndText( "Final 3", "Dastan decide renunciar al poder y vivir en el pasado con Tamina."
       );
-      showFinalButtons(); break;
+      botonesFinales(); 
+   }
 
-    case 13: // Créditos
-      showTitleAndText("Créditos", " Alumnas y Desarrolladoras: Clar Agustina y Avanzini Ailen. Creadora de Imagenes: Dall-e IA");
-      showFinalButtons(); break;
+   else if ( screen == 13 ) { // Créditos
+      showTitleAndText("Créditos", "Alumnas y Desarrolladoras: Clar Agustina y Avanzini Ailen. \n Creadora de Imagenes: Dall-e IA");
+      botonesFinales(); 
+   }
 
-    case 14: // Dolorosa desición
+    else if ( screen == 14 ) { // Dolorosa desición
       showTitleAndText( "Dolorosa desición", "Tamina se ofrece como esposa al traidor con la condicion que deje a Dastan y a su familia en Paz y que Alamut pueda prosperar"
       );
-     showButtons("El traidor Acepta", "El traidor no Acepta"); break;
+     botones();
+    }
 
-    case 15: // Final 5
+  else if ( screen == 15 ) { // Final 5
       showTitleAndText( "Final 5", "Tamina y el traidor se casan en esta boda indeseada y promete dejar a Alamut y Dastan en Paz."
       );
-      showFinalButtons(); break;
+       botonesFinales();  
+       }
 
-    case 16: // Final 6
+   else if ( screen == 16 ) { // Final 6
       showTitleAndText( "Final 6", "El traidor no acepta y mata a Tamina desatando asi una guerra entre reinos."
       );
-      showFinalButtons();   break;
-  }
+      botonesFinales();  
+   }
 }
 
 // Función para mostrar título y texto de cada pantalla
 
 function showTitleAndText(title, body) {
   
-  textSize(24); // Tamaño del texto del título
+  textSize(24); // Tamaño del título
   textStyle(BOLD); // Negrita para el título
   text(title, width / 2, 50); // Título centrado
   
-  textSize(18);  // Tamaño del texto del cuerpo
-  textStyle(NORMAL); // Estilo normal para el cuerpo del texto
+  textSize(18);  // Tamaño del texto
+  textStyle(NORMAL); // Estilo normal para el texto
   
   let textY = height / 2 - 50; // Posición Y del texto
   let textWidth = 600; // Ancho máximo para el texto
@@ -157,72 +162,130 @@ function showTitleAndText(title, body) {
   
 }
 
-// Función para mostrar botones según la opción
+function mouseClicked() {
+  let btn1X = width / 2 - 100;
+  let btn1Y = height - 100;
+  let btnWidth = 200;
+  let btnHeight = 40;
 
-function showButtons(option1, option2) {
-  resetButtons(); // Elimina los botones anteriores
-  
- // Botón 1
-  btn1 = createButton(option1);
-  btn1.position(width / 2 - 100, height - 130); 
-  btn1.size(200, 40); 
-  btn1.mousePressed(() => { 
-    switch (screen) { 
-      case 0: screen = 1; break; 
-      case 1: screen = 2; break; 
-      case 2: screen = 3; break; 
-      case 3: screen = 4; break; 
-      case 4: screen = 10; break; 
-      case 5: screen = 6; break; 
-      case 6: screen = 14; break; 
-      case 7: screen = 10; break; 
-      case 8: screen = 10; break;
+  let btn2X = width / 2 - 100;
+  let btn2Y = height - 60;
+  let btn2Width = 200;
+  let btn2Height = 40;
+
+  // Botón 1
+  if (mouseX >= btn1X && mouseX <= btn1X + btnWidth && mouseY >= btn1Y && mouseY <= btn1Y + btnHeight) {
+    switch (screen) {
+      case 0:  screen = 1;   break;
+      case 1:  screen = 2;   break;
+      case 2:  screen = 3;   break;
+      case 3:  screen = 4;   break;
+      case 4:  screen = 10;   break;
+      case 5:  screen = 6;   break;
+      case 6:  screen = 14;   break;
+      case 7:  screen = 8;   break;
+      case 8:  screen = 9;   break;
       case 14: screen = 15; break;
+      case 9: case 10: case 11: case 12: case 13: case 15: case 16:
+        screen = 0; // Vuelve a la caratula
+        break;
     }
-  });
+  }
 
-// Botón 2 (si existe)
-  if (option2) {
-    btn2 = createButton(option2);
-    btn2.position(width / 2 - 100, height - 70); 
-    btn2.size(200, 40);
-    btn2.mousePressed(() => { 
-      switch (screen) {
-        case 0: screen = 13; break; 
-        case 2: screen = 5; break;
-        case 3: screen = 8; break;
-        case 4: screen = 11; break;
-        case 5: screen = 7; break; 
-        case 6: screen = 15; break;
-        case 7: screen = 9; break;
-        case 8: screen = 12; break;
-        case 14: screen = 16; break;
-      }
-    });
+  // Botón 2
+  if (mouseX >= btn2X && mouseX <= btn2X + btn2Width && mouseY >= btn2Y && mouseY <= btn2Y + btn2Height) {
+    switch (screen) {
+      case 0: screen = 13;  break;
+      case 2: screen = 5;   break;
+      case 3: screen = 8;   break;
+      case 4: screen = 11;  break;
+      case 5: screen = 7;   break;
+      case 6: screen = 15;  break;
+      case 7: screen = 10;   break;
+      case 8: screen = 10;  break;
+      case 14: screen = 15; break;
+      case 9: case 10: case 11: case 12: case 13: case 15: case 16:
+        screen = 1; // Vuelve al Inicio
+        break;
+    }
   }
 }
 
-// Función para mostrar los botones finales (Caratula o Reiniciar Aventura)
 
-function showFinalButtons() {
-  resetButtons();
 
-  btn1 = createButton("Volver a la carátula");
-  btn1.position(width / 2 - 100, height - 100); 
-  btn1.size(200, 40);
-  btn1.mousePressed(() => screen = 0);
+function botonesFinales() {
+  stroke(0);
+  fill(255);
 
-  btn2 = createButton("Reiniciar aventura");
-  btn2.position(width / 2 - 100, height - 50); 
-  btn2.size(200, 40);
-  btn2.mousePressed(() => screen = 1);
+  // Botón para volver a la carátula
+  rect(width / 2 - 100, height - 100, 200, 40);
+  fill(0);
+  text("Carátula", width / 2, height - 80);
+
+  // Botón para volver al inicio de la aventura
+  fill(255);
+  rect(width / 2 - 100, height - 60, 200, 40);
+  fill(0);
+  text("Inicio", width / 2, height - 40);
 }
 
+function botones() {
+  stroke(0);
+  fill(255);
 
+  switch (screen) {
+    case 0:
+      textoBtn1 = "Comenzar";
+      textoBtn2 = "Créditos";
+      break;
+    case 1:
+      textoBtn1 = "Explorar la ciudad";
+      textoBtn2 = null;
+      break;
+    case 2:
+      textoBtn1 = "Salvar a alguien";
+      textoBtn2 = "Ocultar la Daga";
+      break;
+    case 3:
+      textoBtn1 = "Viajar juntos al futuro";
+      textoBtn2 = "Separarse en el desierto";
+      break;
+    case 4:
+      textoBtn1 = "Enfrentar al traidor";
+      textoBtn2 = "Regresar en el tiempo";
+      break;
+    case 5:
+      textoBtn1 = "Regresar a Alamut";
+      textoBtn2 = "Huir al desierto";
+      break;
+    case 6:
+      textoBtn1 = "Tamina se casa";
+      textoBtn2 = "Cambiar el futuro";
+      break;
+    case 7:
+      textoBtn1 = " Usar la Daga";
+      textoBtn2 = "No usar la Daga";
+      break;
+    case 8:
+      textoBtn1 = "Ignorar advertencias";
+      textoBtn2 = "Escuchar al sabio";
+      break;
+    case 14:
+      textoBtn1 = "El traidor acepta";
+      textoBtn2 = "El traidor no acepta";
+      break;
+  }
 
-//Funcion para remover los botones
+  // Botón 1
+  rect(width / 2 - 100, height - 100, 200, 40);
+  fill(0);
+  text(textoBtn1, width / 2, height - 80);
 
-function resetButtons() {
-  if (btn1) btn1.remove();
-  if (btn2) btn2.remove();
+  // Botón 2 (solo si está definido)
+  if (textoBtn2) {
+    fill(255);
+    rect(width / 2 - 100, height - 60, 200, 40);
+    fill(0);
+    text(textoBtn2, width / 2, height - 40);
+  }
 }
