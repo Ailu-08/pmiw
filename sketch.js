@@ -1,3 +1,7 @@
+// Alumnas: Clar Agustina Legajo:    , Ailen Avanzini Legajo: 94717/7  // Materia: pmiw // TPFinalParte1 //Comision: 5// FDA // UNLP
+//Link Figma: (En proceso de cambio de formato, una vez terminado le envio el PDF): https://www.figma.com/board/W182wDNffjNHWQzHQ9bTvi/FigJam-Basics?node-id=0-1&node-type=canvas&t=dFauu5vBU9LHR0tr-0
+//Link Tutorial: 
+
 let screen = 0;
 let btn1, btn2; // Botones interactivos
 let images = []; // Arreglo para las almacenar las imágenes
@@ -114,7 +118,7 @@ function draw() {
       showFinalButtons(); break;
 
     case 13: // Créditos
-      showTitleAndText("Créditos", "Desarrollado por Clar Agustina y Avanzini Ailen.");
+      showTitleAndText("Créditos", " Alumnas y Desarrolladoras: Clar Agustina y Avanzini Ailen. Creadora de Imagenes: Dall-e IA");
       showFinalButtons(); break;
 
     case 14: // Dolorosa desición
@@ -147,50 +151,10 @@ function showTitleAndText(title, body) {
   
   let textY = height / 2 - 50; // Posición Y del texto
   let textWidth = 600; // Ancho máximo para el texto
+   
+    // Muestra el texto y su posicion
+  text(body, 20, textY, textWidth, height - 300);
   
-  //  Divide el texto contenido en la variable body en múltiples líneas, separándolas por donde haya saltos de línea con el uso del delimitador (\n).
-  
-  let lines = splitTokens(body, "\n"); 
-
-  for (let i = 0; i < lines.length; i++) {
-    
-    let wrappedText = wordWrap(lines[i], textWidth);
-
-    for (let j = 0; j < wrappedText.length; j++) {
-      
-      text(wrappedText[j], width / 2, textY + (i * 30) + j * 18); 
-    }
-  }
-}
-
-function wordWrap(text, maxWidth) {
-  
-  let words = text.split(" "); 
-  
-  let lines = [];      // Almacena las líneas ajustadas resultantes.
-  let currentLine = ""; //Línea que está siendo construida actualmente.
-
-  for (let word of words) { //Recorre cada palabra en el texto.
-    
-    let testLine = currentLine + word + " "; 
-    let testWidth = textWidth(testLine); // Verifica el ancho de la línea de prueba
-    
-// Si supera el ancho,
-
-    if (testWidth > maxWidth && currentLine.length > 0) { 
-      lines.push(currentLine); //Guarda la línea actual en el arreglo lines[]
-      currentLine = word + " "; // Comienza una nueva línea con la palabra que no cabia en la anterior
-      
-    } else {
-      
-// Si no se excede del maximo, sigue añadiendo palabras a la línea actual      
-      currentLine = testLine;  } }
-
-  if (currentLine.length > 0) {
-    lines.push(currentLine); //Si queda alguna palabra, la añade como la última línea en el arreglo lines[].
-  }
-
-  return lines; //Retorna el arreglo de líneas ajustadas.
 }
 
 // Función para mostrar botones según la opción
@@ -254,10 +218,11 @@ function showFinalButtons() {
   btn2.mousePressed(() => screen = 1);
 }
 
+
+
 //Funcion para remover los botones
 
 function resetButtons() {
   if (btn1) btn1.remove();
   if (btn2) btn2.remove();
 }
-
