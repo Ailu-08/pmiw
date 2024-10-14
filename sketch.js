@@ -2,7 +2,7 @@
 //Link Figma: (En proceso de cambio de formato, una vez terminado le envio el PDF): https://www.figma.com/board/W182wDNffjNHWQzHQ9bTvi/FigJam-Basics?node-id=0-1&node-type=canvas&t=dFauu5vBU9LHR0tr-0
 //Link Tutorial: 
 
-let screen= 0;
+
 let images = []; 
 
 function preload() {
@@ -32,6 +32,7 @@ images[0] = loadImage('assets/PersianPrince.png'); // Imagen para la pantalla 0 
 
 function setup() {
   createCanvas(640, 480);
+  screen= 0;
   textAlign(CENTER, CENTER); // Centra el texto horizontal y verticalmente
 }
 
