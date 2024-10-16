@@ -2,38 +2,39 @@
 //Link Figma: (En proceso de cambio de formato, una vez terminado le envio el PDF): https://www.figma.com/board/W182wDNffjNHWQzHQ9bTvi/FigJam-Basics?node-id=0-1&node-type=canvas&t=dFauu5vBU9LHR0tr-0
 //Link Tutorial: 
 
-
-let images = []; 
+let images = [];
+let mysound;
 
 function preload() {
   // Carga la imagen de la carátula
 images[0] = loadImage('assets/PersianPrince.png'); // Imagen para la pantalla 0 Caratula
+images[1] = loadImage('assets/Image1.png');
+images[2] = loadImage('assets/Image2.png');
+images[3] = loadImage('assets/Image3.png');
+images[5] = loadImage('assets/Image5.png');
+images[6] = loadImage('assets/Image6.png');
+images[7] = loadImage('assets/Image7.png');
+images[8] = loadImage('assets/Image8.png');
+images[9] = loadImage('assets/Image9.png');    // Imagen para el Final 4
+images[10] = loadImage('assets/Image10.png');  // Imagen para el Final 1
+images[11] = loadImage('assets/Image11.png'); // Imagen para el Final 2
+images[14] = loadImage('assets/Image14.png'); 
+images[15] = loadImage('assets/Image15.png');  // Imagen para el Final 5
+images[16] = loadImage('assets/Image16.png'); // Imagen para el Final 6
 
-//Carga de las 16 imágenes adicionales. Agregar rutas cuando tenga las imagenes!!
-  
-  // images[1] = loadImage('assets/imagen1.png'); // Imagen para la pantalla 1
-  // images[2] = loadImage('assets/imagen2.png'); // Imagen para la pantalla 2
-  // images[3] = loadImage('assets/imagen3.png'); // Imagen para la pantalla 3
-  // images[4] = loadImage('assets/imagen4.png'); // Imagen para la pantalla 4
-  // images[5] = loadImage('assets/imagen5.png'); // Imagen para la pantalla 5
-  // images[6] = loadImage('assets/imagen6.png'); // Imagen para la pantalla 6
-  // images[7] = loadImage('assets/imagen7.png'); // Imagen para la pantalla 7
-  // images[8] = loadImage('assets/imagen8.png'); // Imagen para la pantalla 8
-  // images[9] = loadImage('assets/imagen9.png'); // Imagen para la pantalla 9
-  // images[10] = loadImage('assets/imagen10.png'); // Imagen para la pantalla 10
-  // images[11] = loadImage('assets/imagen11.png'); // Imagen para la pantalla 11
-  // images[12] = loadImage('assets/imagen12.png'); // Imagen para la pantalla 12
-  // images[13] = loadImage('assets/imagen13.png'); // Imagen para la pantalla 13 (Creditos)
-  // images[14] = loadImage('assets/imagen14.png'); // Imagen para la pantalla 14
-  // images[15] = loadImage('assets/imagen15.png'); // Imagen para la pantalla 15
-  // images[16] = loadImage('assets/imagen16.png'); // Imagen para la pantalla 16
+//Carga de las imágenes adicionales. Agregar rutas cuando tenga las imagenes!!
+    //images[4] = loadImage('assets/Image4.png');
+   // images[12] = loadImage('assets/Image12.png'); // Imagen para el Final 3
+  // images[13] = loadImage('assets/Image13.png'); // Imagen para la pantalla 13 (Creditos)
 
+soundFormats('mp3');
+mySound= loadSound('assets/Song');
 }
 
 function setup() {
   createCanvas(640, 480);
-  screen= 0;
   textAlign(CENTER, CENTER); // Centra el texto horizontal y verticalmente
+  screen= 0;
 }
 
 function draw() {
@@ -50,104 +51,126 @@ function draw() {
         botones();        
 
   } else if ( screen == 1 ) {      // Introducción
+     image(images[1], 0, 0, width, height); // Muestra la imagen 1
      showTitleAndText( "Introducción", "En un antiguo reino persa, el joven príncipe Dastan es adoptado por el rey. Durante una misión, Dastan y su hermano Garsiv asaltan la ciudad de Alamut, creyendo que sus habitantes son traidores."
       );
       botones();
   }
 
   else if ( screen == 2 ) {   // Descubrimiento
+    image(images[2], 0, 0, width, height); // Muestra la imagen 2
       showTitleAndText( "Descubrimiento", "Mientras explora, Dastan encuentra una Daga mística que le permite retroceder en el tiempo."
       );
      botones();
     }  
 
     else if ( screen == 3 ) { // Salvando a alguien
+      image(images[3], 0, 0, width, height); // Muestra la imagen 3
       showTitleAndText( "Salvando a alguien", "Dastan usa la Daga para salvar a una joven de ser ejecutada. La joven se presenta como Tamina y le revela la verdadera historia: Alamut no es traidor y quien realmente es el traidor."
       );
    botones();
        } 
 
    else if ( screen == 4 ) {  // Descubriendo la clave
+   //image(images[4], 0, 0, width, height); // Muestra la imagen 4
       showTitleAndText( "Descubriendo la clave", "Dastan y Tamina descubren que la Daga es la clave para detener al verdadero traidor."
       );
      botones(); 
       } 
 
    else if ( screen == 5 ) {  // Ocultando la Daga
+     image(images[5], 0, 0, width, height); // Muestra la imagen 5
       showTitleAndText( "Ocultando la Daga", "Dastan siente que ha tomado una decisión arriesgada al ocultar la Daga ya que descubrió que Alamut no había cometido traición."
       );
      botones();
       } 
 
   else if ( screen == 6 ) { // Alianza
+  image(images[6], 0, 0, width, height); // Muestra la imagen 6
       showTitleAndText( "Alianza", "Dastan conoce a Tamina en Alamut y se unen para desentrañar el complot que amenaza al reino. Sin embargo, se enfrentan a la traición de un noble."
       );
     botones();
        } 
 
     else if ( screen == 7 ) { // Huida Solitaria
+      image(images[7], 0, 0, width, height); // Muestra la imagen 7
       showTitleAndText( "Huida Solitaria", "Dastan escapa solo y se encuentra con guerreros del desierto. Ellos le cuentan quien es el traidor y Dastan decide enfrentarlo."
       );
       botones();
       } 
 
     else if ( screen == 8 ) { // El Viejo Sabio
+    image(images[8], 0, 0, width, height); // Muestra la imagen 8
       showTitleAndText( "El Viejo Sabio", "Dastan se encuentra con un sabio que le advierte sobre las consecuencias de sus acciones. Debe decidir cómo actuar.");
      botones(); 
     } 
 
    else if ( screen == 9 ) { // (Final 4)
+   image(images[9], 0, 0, width, height); // Muestra la imagen 9
       showTitleAndText( "Final: 4", "Dastan se enfrenta al traidor pero pierde la batalla, y el traidor logra conseguir la Daga y conquistar el reino."
       );
     botonesFinales(); 
+    stopSound();
        } 
 
  else if ( screen == 10 ) { // Final 1
+ image(images[10], 0, 0, width, height); // Muestra la imagen 10
       showTitleAndText( "Final 1", "Dastan derrota al traidor, asegurando la paz en el reino y destruyendo la Daga."
       );
-      botonesFinales(); 
+      botonesFinales();
+      stopSound();
             }
 
   else if ( screen == 11 ) { // Final 2
+  image(images[11], 0, 0, width, height); // Muestra la imagen 11
+    image(images[11], 0, 0, width, height); // Muestra la imagen 11
       showTitleAndText( "Final 2", "Dastan utiliza la Daga para cambiar su destino, salvando a Alamut, a sí mismo y a su familia."
       );
-       botonesFinales();  
+       botonesFinales();
+       stopSound();
   }
 
    else if ( screen == 12 ) { // Final 3
       showTitleAndText( "Final 3", "Dastan decide renunciar al poder y vivir en el pasado con Tamina."
       );
       botonesFinales(); 
+      stopSound();
    }
 
    else if ( screen == 13 ) { // Créditos
       showTitleAndText("Créditos", "Alumnas y Desarrolladoras: Clar Agustina y Avanzini Ailen. \n Creadora de Imagenes: Dall-e IA");
-      botonesFinales(); 
+      botonesFinales();
+      stopSound();
    }
 
     else if ( screen == 14 ) { // Dolorosa desición
+    image(images[14], 0, 0, width, height); // Muestra la imagen 14
       showTitleAndText( "Dolorosa desición", "Tamina se ofrece como esposa al traidor con la condicion que deje a Dastan y a su familia en Paz y que Alamut pueda prosperar"
       );
      botones();
     }
 
   else if ( screen == 15 ) { // Final 5
+  image(images[15], 0, 0, width, height); // Muestra la imagen 15
       showTitleAndText( "Final 5", "Tamina y el traidor se casan en esta boda indeseada y promete dejar a Alamut y Dastan en Paz."
       );
        botonesFinales();  
+       stopSound();
        }
 
    else if ( screen == 16 ) { // Final 6
+   image(images[16], 0, 0, width, height); // Muestra la imagen 16
       showTitleAndText( "Final 6", "El traidor no acepta y mata a Tamina desatando asi una guerra entre reinos."
       );
-      botonesFinales();  
+      botonesFinales(); 
+      stopSound();
    }
 }
 
 // Función para mostrar título y texto de cada pantalla
 
 function showTitleAndText(title, body) {
-  
+  fill(255);
   textSize(24); // Tamaño del título
   textStyle(BOLD); // Negrita para el título
   text(title, width / 2, 50); // Título centrado
@@ -161,6 +184,22 @@ function showTitleAndText(title, body) {
     // Muestra el texto y su posicion
   text(body, 20, textY, textWidth, height - 300);
   
+}
+
+function stopSound() {
+  // Detener el sonido al llegar a los finales
+   if (mySound.isPlaying()) {
+       mySound.stop();
+   } }
+   
+function rebootSound() { 
+  // Reproduce el sonido desde el inicio
+   if (!mySound.isPlaying()) {
+       mySound.play();
+   } }
+
+function mousePressed() {
+  mySound.play();
 }
 
 function mouseClicked() {
@@ -184,8 +223,8 @@ function mouseClicked() {
       case 4:  screen = 10;   break;
       case 5:  screen = 6;   break;
       case 6:  screen = 14;   break;
-      case 7:  screen = 8;   break;
-      case 8:  screen = 9;   break;
+      case 7:  screen = 10;   break;
+      case 8:  screen = 10;   break;
       case 14: screen = 15; break;
       case 9: case 10: case 11: case 12: case 13: case 15: case 16:
         screen = 0; // Vuelve a la caratula
@@ -201,10 +240,10 @@ function mouseClicked() {
       case 3: screen = 8;   break;
       case 4: screen = 11;  break;
       case 5: screen = 7;   break;
-      case 6: screen = 15;  break;
-      case 7: screen = 10;   break;
-      case 8: screen = 10;  break;
-      case 14: screen = 15; break;
+      case 6: screen = 11;  break;
+      case 7: screen = 9;   break;
+      case 8: screen = 12;  break;
+      case 14: screen = 16; break;
       case 9: case 10: case 11: case 12: case 13: case 15: case 16:
         screen = 1; // Vuelve al Inicio
         break;
