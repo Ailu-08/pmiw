@@ -15,12 +15,12 @@ images[5] = loadImage('assets/Image5.png');
 images[6] = loadImage('assets/Image6.png');
 images[7] = loadImage('assets/Image7.png');
 images[8] = loadImage('assets/Image8.png');
-images[9] = loadImage('assets/Image9.png');    // Imagen para el Final 4
-images[10] = loadImage('assets/Image10.png');  // Imagen para el Final 1
-images[11] = loadImage('assets/Image11.png'); // Imagen para el Final 2
+images[9] = loadImage('assets/Image9.png');    // Imagen para el Final 1
+images[10] = loadImage('assets/Image10.png');  // Imagen para el Final 2
+images[11] = loadImage('assets/Image11.png');
 images[14] = loadImage('assets/Image14.png'); 
-images[15] = loadImage('assets/Image15.png');  // Imagen para el Final 5
-images[16] = loadImage('assets/Image16.png'); // Imagen para el Final 6
+images[15] = loadImage('assets/Image15.png'); 
+images[16] = loadImage('assets/Image16.png'); // Imagen para el Final 4
 
 //Carga de las imágenes adicionales. Agregar rutas cuando tenga las imagenes!!
     //images[4] = loadImage('assets/Image4.png');
@@ -101,37 +101,36 @@ function draw() {
 
     else if ( screen == 8 ) { // El Viejo Sabio
     image(images[8], 0, 0, width, height); // Muestra la imagen 8
-      showTitleAndText( "El Viejo Sabio", "Dastan se encuentra con un sabio que le advierte sobre las consecuencias de sus acciones. Debe decidir cómo actuar.");
+      showTitleAndText( "El Viejo Sabio", " A Dastan le presentan a un sabio que le advierte sobre las consecuencias de sus acciones. Debe decidir cómo actuar.");
      botones(); 
     } 
 
-   else if ( screen == 9 ) { // (Final 4)
+   else if ( screen == 9 ) { // (Final 1)
    image(images[9], 0, 0, width, height); // Muestra la imagen 9
-      showTitleAndText( "Final: 4", "Dastan se enfrenta al traidor pero pierde la batalla, y el traidor logra conseguir la Daga y conquistar el reino."
+      showTitleAndText( "Final: 1", "Dastan se enfrenta al traidor pero pierde la batalla, y el traidor logra conseguir la Daga y conquistar el reino."
       );
     botonesFinales(); 
     stopSound();
        } 
 
- else if ( screen == 10 ) { // Final 1
+ else if ( screen == 10 ) { // Final 2
  image(images[10], 0, 0, width, height); // Muestra la imagen 10
-      showTitleAndText( "Final 1", "Dastan derrota al traidor, asegurando la paz en el reino y destruyendo la Daga."
+      showTitleAndText( "Final 2", "Dastan derrota al traidor con la daga, asegurando la paz en el reino y destruyendo la Daga."
       );
       botonesFinales();
       stopSound();
             }
 
-  else if ( screen == 11 ) { // Final 2
+  else if ( screen == 11 ) { //Cambiando el Destino 
   image(images[11], 0, 0, width, height); // Muestra la imagen 11
     image(images[11], 0, 0, width, height); // Muestra la imagen 11
       showTitleAndText( "Final 2", "Dastan utiliza la Daga para cambiar su destino, salvando a Alamut, a sí mismo y a su familia."
       );
-       botonesFinales();
-       stopSound();
+       botones();
   }
 
    else if ( screen == 12 ) { // Final 3
-      showTitleAndText( "Final 3", "Dastan decide renunciar al poder y vivir en el pasado con Tamina."
+      showTitleAndText( "Final 3", "Gracias a sus esfuerzos, Tamina la princesa de Alamut le agradece besandolo."
       );
       botonesFinales(); 
       stopSound();
@@ -150,17 +149,16 @@ function draw() {
      botones();
     }
 
-  else if ( screen == 15 ) { // Final 5
+  else if ( screen == 15 ) { //Boda Indeseada
   image(images[15], 0, 0, width, height); // Muestra la imagen 15
-      showTitleAndText( "Final 5", "Tamina y el traidor se casan en esta boda indeseada y promete dejar a Alamut y Dastan en Paz."
+      showTitleAndText( "Boda Indeseada", "Tamina y el traidor se casan en esta boda indeseada y promete dejar a Alamut y Dastan en Paz."
       );
-       botonesFinales();  
-       stopSound();
+       botones(); 
        }
 
-   else if ( screen == 16 ) { // Final 6
+   else if ( screen == 16 ) { // Final 4
    image(images[16], 0, 0, width, height); // Muestra la imagen 16
-      showTitleAndText( "Final 6", "El traidor no acepta y mata a Tamina desatando asi una guerra entre reinos."
+      showTitleAndText( "Final 4", "El traidor mata a Tamina para ser el unico gobernante de ambos reinos, Dastan lamenta la perdida de su amor"
       );
       botonesFinales(); 
       stopSound();
@@ -191,12 +189,6 @@ function stopSound() {
    if (mySound.isPlaying()) {
        mySound.stop();
    } }
-   
-function rebootSound() { 
-  // Reproduce el sonido desde el inicio
-   if (!mySound.isPlaying()) {
-       mySound.play();
-   } }
 
 function mousePressed() {
   mySound.play();
@@ -223,10 +215,12 @@ function mouseClicked() {
       case 4:  screen = 10;   break;
       case 5:  screen = 6;   break;
       case 6:  screen = 14;   break;
-      case 7:  screen = 10;   break;
-      case 8:  screen = 10;   break;
-      case 14: screen = 15; break;
-      case 9: case 10: case 11: case 12: case 13: case 15: case 16:
+      case 7:  screen = 8;   break;
+      case 8:  screen = 11;   break;
+      case 11: screen = 12;   break;
+      case 14: screen = 15;   break;
+      case 15: screen = 16;   break;
+      case 9: case 10: case 12: case 13: case 16:
         screen = 0; // Vuelve a la caratula
         break;
     }
@@ -237,14 +231,9 @@ function mouseClicked() {
     switch (screen) {
       case 0: screen = 13;  break;
       case 2: screen = 5;   break;
-      case 3: screen = 8;   break;
-      case 4: screen = 11;  break;
+      case 4: screen = 9;  break;
       case 5: screen = 7;   break;
-      case 6: screen = 11;  break;
-      case 7: screen = 9;   break;
-      case 8: screen = 12;  break;
-      case 14: screen = 16; break;
-      case 9: case 10: case 11: case 12: case 13: case 15: case 16:
+      case 9: case 10: case 12: case 13: case 16:
         screen = 1; // Vuelve al Inicio
         break;
     }
@@ -288,11 +277,11 @@ function botones() {
       break;
     case 3:
       textoBtn1 = "Viajar juntos al futuro";
-      textoBtn2 = "Separarse en el desierto";
+      textoBtn2 = null;
       break;
     case 4:
-      textoBtn1 = "Enfrentar al traidor";
-      textoBtn2 = "Regresar en el tiempo";
+      textoBtn1 = "Usar la daga";
+      textoBtn2 = "No usar la daga";
       break;
     case 5:
       textoBtn1 = "Regresar a Alamut";
@@ -300,19 +289,27 @@ function botones() {
       break;
     case 6:
       textoBtn1 = "Tamina se casa";
-      textoBtn2 = "Cambiar el futuro";
+      textoBtn2 = null;
       break;
     case 7:
-      textoBtn1 = " Usar la Daga";
-      textoBtn2 = "No usar la Daga";
+      textoBtn1 = " Dastan Reflexiona";
+      textoBtn2 = null;
       break;
     case 8:
-      textoBtn1 = "Ignorar advertencias";
-      textoBtn2 = "Escuchar al sabio";
+      textoBtn1 = "Escuchar al sabio";
+      textoBtn2 = null;
+      break;
+    case 11:
+      textoBtn1 = "Reclamar el Trono";
+      textoBtn2 = null;
       break;
     case 14:
       textoBtn1 = "El traidor acepta";
-      textoBtn2 = "El traidor no acepta";
+      textoBtn2 = null;
+      break;
+    case 15:
+      textoBtn1 = "¿Felices para Siempre?";
+      textoBtn2 = null;
       break;
   }
 
