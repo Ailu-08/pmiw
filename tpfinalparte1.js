@@ -6,20 +6,12 @@ let mysound;
 
 function preload() {
   // Carga la imagen de la carátula
-images[0] = loadImage('assets/PersianPrince.png'); // Imagen para la pantalla 0 Caratula
-images[1] = loadImage('assets/Image1.png');
-images[2] = loadImage('assets/Image2.png');
-images[3] = loadImage('assets/Image3.png');
-images[5] = loadImage('assets/Image5.png');
-images[6] = loadImage('assets/Image6.png');
-images[7] = loadImage('assets/Image7.png');
-images[8] = loadImage('assets/Image8.png');
-images[9] = loadImage('assets/Image9.png');    // Imagen para el Final 1
-images[10] = loadImage('assets/Image10.png');  // Imagen para el Final 2
-images[11] = loadImage('assets/Image11.png');
-images[14] = loadImage('assets/Image14.png'); 
-images[15] = loadImage('assets/Image15.png'); 
-images[16] = loadImage('assets/Image16.png'); // Imagen para el Final 4
+  let imageIndices = [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16]; // Incluyendo los índices faltantes
+ for (let i = 0; i < imageIndices.length; i++) {
+    let index = imageIndices[i];
+    images[index] = loadImage('assets/Image' + index + '.png');
+  }
+
 
 //Carga de las imágenes adicionales. Agregar rutas cuando tenga las imagenes!!
     //images[4] = loadImage('assets/Image4.png');
