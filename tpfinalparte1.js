@@ -5,8 +5,8 @@ let images = [];
 let mysound;
 
 function preload() {
-  // Carga la imagen de la carátula
-  let imageIndices = [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16]; // Incluyendo los índices faltantes
+  // Arreglo de Indices
+  let imageIndices = [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16]; //Faltan 4,12,13
  for (let i = 0; i < imageIndices.length; i++) {
     let index = imageIndices[i];
     images[index] = loadImage('assets/Image' + index + '.png');
