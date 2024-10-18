@@ -1,5 +1,4 @@
 // Alumnas: Clar Agustina Legajo:    , Ailen Avanzini Legajo: 94717/7  // Materia: pmiw // TPFinalParte1 //Comision: 5// FDA // UNLP
-//Link Figma: (En proceso de cambio de formato, una vez terminado le envio el PDF): https://www.figma.com/board/W182wDNffjNHWQzHQ9bTvi/FigJam-Basics?node-id=0-1&node-type=canvas&t=dFauu5vBU9LHR0tr-0
 //Link Tutorial: 
 
 let images = [];
