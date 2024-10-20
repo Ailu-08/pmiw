@@ -12,6 +12,6 @@ function StoryPant(screen) {
 function FinalScreen(screen, titleIndex, textIndex) {
     image(images[screen], 0, 0, width, height); // Muestra la imagen según su pantalla
     showTitleAndText(titles[titleIndex], texts[textIndex]); // Usar índices específicos
-    botonesFinales();
+    botones();
     stopSound();
 }
