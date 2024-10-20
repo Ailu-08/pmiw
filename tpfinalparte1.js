@@ -161,24 +161,6 @@ function mouseClicked() {
   }
 }
 
-
-
-function botonesFinales() {
-  stroke(0);
-  fill(255);
-
-  // Botón para volver a la carátula
-  rect(width / 2 - 100, height - 100, 200, 40);
-  fill(0);
-  text(titles[16], width / 2, height - 80);
-
-  // Botón para volver al inicio de la aventura
-  fill(255);
-  rect(width / 2 - 100, height - 60, 200, 40);
-  fill(0);
-  text(titles[17], width / 2, height - 40);
-}
-
 function botones() {
   stroke(0);
   fill(255);
@@ -220,9 +202,25 @@ function botones() {
       textoBtn1 = titles[12];
       textoBtn2 = null;
       break;
+case 9:
+      textoBtn1 = titles[16]
+      textoBtn2 = titles[17]
+      break;
+case 10:
+      textoBtn1 = titles[16]
+      textoBtn2 = titles[17]
+      break;
     case 11:
       textoBtn1 = titles[13];
       textoBtn2 = null;
+      break;
+case 12:
+      textoBtn1 = titles[16]
+      textoBtn2 = titles[17]
+      break;
+case 13:
+      textoBtn1 = titles[16]
+      textoBtn2 = titles[17]
       break;
     case 14:
       textoBtn1 = titles[14];
@@ -231,6 +229,10 @@ function botones() {
     case 15:
       textoBtn1 = titles[15];
       textoBtn2 = null;
+      break;
+case 16:
+      textoBtn1 = titles[16]
+      textoBtn2 = titles[17]
       break;
   }
 
