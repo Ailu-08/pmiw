@@ -31,9 +31,6 @@ function setup() {
 }
 
 function draw() {
-    background(220); // Fondo gris claro
-    fill(0); // Texto Color Negro   
-
     if (screen == 0) { // Carátula
         image(images[0], 0, 0, width, height); // Muestra la imagen de la carátula     
         transparentRect();
