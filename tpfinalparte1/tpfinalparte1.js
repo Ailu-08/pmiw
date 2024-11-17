@@ -1,6 +1,6 @@
 // Alumnas: Clar Agustina Legajo: 93551/8, Ailen Avanzini Legajo: 94717/7  // Materia: pmiw // TP Final Parte 1 //Comision: 5// FDA // UNLP
 //Link Tutorial: (Mas Acotado) //https://www.youtube.com/watch?v=8jwQGmZ3k-E&ab_channel=AgustinaClar
-//Link Tutorial: (Mejor Explicado y con visualizacion de aventura en Pantalla) // https://www.youtube.com/watch?v=riWFpIWbWEw
+//Link Tutorial: (Mejor Explicado y con visualizacion de aventura en Pantalla) // https://www.youtube.com/watch?v=riWFpIWbWEw&ab_channel=AgustinaClar
 
 let images = [];
 let mysound;
