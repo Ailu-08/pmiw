@@ -1,5 +1,5 @@
 // Alumnas: Clar Agustina Legajo: 93551/8, Ailen Avanzini Legajo: 94717/7  // Materia: pmiw // TP Final Parte 1 //Comision: 5// FDA // UNLP
-//Link Tutorial:
+//Link Tutorial: https://www.youtube.com/watch?v=HsGLQ7tebw4&ab_channel=AgustinaClar
 
 let juego;
 let dastan, traitor;
